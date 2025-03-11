@@ -4,7 +4,7 @@ description = "Terraform support."
 version = "0.1.2"
 schema_version = 1
 authors = ["Caius Durling <dev@caius.name>", "Daniel Banck <dbanck@users.noreply.github.com>"]
-repository = "https://github.com/zed-industries/zed"
+repository = "https://github.com/zed-extensions/terraform"
 
 [language_servers.terraform-ls]
 name = "Terraform Language Server"

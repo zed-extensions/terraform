@@ -1,0 +1,12 @@
+#
+# zed-terraform
+#
+
+*.wasm
+/grammars
+
+#
+# Rust
+#
+
+/target
