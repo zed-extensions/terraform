@@ -1,7 +1,7 @@
 id = "terraform"
 name = "Terraform"
 description = "Terraform support."
-version = "0.1.3"
+version = "0.2.0"
 schema_version = 1
 authors = ["Caius Durling <dev@caius.name>", "Daniel Banck <dbanck@users.noreply.github.com>"]
 repository = "https://github.com/zed-extensions/terraform"
@@ -13,6 +13,9 @@ language_ids = { Terraform = "terraform", "Terraform Vars" = "terraform-vars" }
 # TODO: file issue for server supported code actions
 # TODO: reenable default actions / delete override
 code_action_kinds = []
+
+[context_servers.terraform-mcp]
+name = "Terraform MCP Server"
 
 [grammars.hcl]
 repository = "https://github.com/MichaHoffmann/tree-sitter-hcl"
