@@ -4,3 +4,6 @@
   (template_literal) @injection.content
   (heredoc_identifier) @injection.language
   (#downcase! @injection.language))
+
+((comment) @injection.content
+  (#set! injection.language "comment"))
