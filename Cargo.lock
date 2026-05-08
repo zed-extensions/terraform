@@ -323,7 +323,7 @@ dependencies = [
 
 [[package]]
 name = "zed_terraform"
-version = "0.1.7"
+version = "0.1.8"
 dependencies = [
  "zed_extension_api",
 ]
