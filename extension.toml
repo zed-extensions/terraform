@@ -15,5 +15,5 @@ language_ids = { Terraform = "terraform", "Terraform Vars" = "terraform-vars" }
 code_action_kinds = []
 
 [grammars.hcl]
-repository = "https://github.com/MichaHoffmann/tree-sitter-hcl"
-commit = "e936d3fef8bac884661472dce71ad82284761eb1"
+repository = "https://github.com/tree-sitter-grammars/tree-sitter-hcl"
+commit = "fad991865fee927dd1de5e172fb3f08ac674d914"
