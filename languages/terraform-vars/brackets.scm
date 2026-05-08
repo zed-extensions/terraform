@@ -1,6 +1,17 @@
-("(" @open ")" @close)
-("[" @open "]" @close)
-("{" @open "}" @close)
-((block_start) @open (block_end) @close)
-((tuple_start) @open (tuple_end) @close)
-((object_start) @open (object_end) @close)
+("(" @open
+  ")" @close)
+
+("[" @open
+  "]" @close)
+
+("{" @open
+  "}" @close)
+
+((block_start) @open
+  (block_end) @close)
+
+((tuple_start) @open
+  (tuple_end) @close)
+
+((object_start) @open
+  (object_end) @close)

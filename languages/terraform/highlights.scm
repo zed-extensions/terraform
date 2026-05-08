@@ -102,10 +102,9 @@
 ;
 ; highlight identifier keys as though they were block attributes
 (object_elem
-  key:
-    (expression
-      (variable_expr
-        (identifier) @variable)))
+  key: (expression
+    (variable_expr
+      (identifier) @variable)))
 
 ; var.foo, data.bar
 ;
@@ -152,8 +151,7 @@
   (#any-of? @type "bool" "string" "number" "object" "tuple" "list" "map" "set" "any"))
 
 (object_elem
-  val:
-    (expression
-      (variable_expr
-        (identifier) @type
-        (#any-of? @type "bool" "string" "number" "object" "tuple" "list" "map" "set" "any"))))
+  val: (expression
+    (variable_expr
+      (identifier) @type
+      (#any-of? @type "bool" "string" "number" "object" "tuple" "list" "map" "set" "any"))))
