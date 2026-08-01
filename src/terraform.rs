@@ -51,7 +51,13 @@ impl TerraformExtension {
         );
 
         let version_dir = format!("terraform-ls-{}", release.version);
-        let binary_path = format!("{version_dir}/terraform-ls");
+        let binary_path = format!(
+            "{version_dir}/terraform-ls{extension}",
+            extension = match platform {
+                zed::Os::Mac | zed::Os::Linux => "",
+                zed::Os::Windows => ".exe",
+            },
+        );
 
         if !fs::metadata(&binary_path).is_ok_and(|stat| stat.is_file()) {
             zed::set_language_server_installation_status(
