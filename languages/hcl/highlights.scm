@@ -108,9 +108,12 @@
 
 ; var.foo, data.bar
 ;
-; first element in get_attr is a variable.builtin or a reference to a variable.builtin
-(expression
+; The first step (`var`, `local`, `module`...) stays neutral, every
+; following step is highlighted, so that the meaningful part of a
+; reference stands out from its namespace.
+; @property is the conventional tree-sitter capture for a member access.
+(_
   (variable_expr
     (identifier) @variable)
   (get_attr
-    (identifier) @variable))
+    (identifier) @property))

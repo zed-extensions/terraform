@@ -1,0 +1,12 @@
+// Extension-provided semantic token rules for Terraform.
+[
+  // Fix language server not separating `local` from `foo` in `local.foo`
+  // by handing reference steps to tree-sitter (no `style` field removes
+  // semantic styling).
+  { "token_type": "variable" },
+  // Style attribute names as `constant`, since the server types them
+  // `property`, which is the same style `highlights.scm` gives reference
+  // steps. This allows differentiating declaration `foo` from reference
+  // `var.foo` in `foo = var.foo`.
+  { "token_type": "property", "style": ["constant"] }
+]

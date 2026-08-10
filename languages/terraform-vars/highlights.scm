@@ -108,39 +108,45 @@
 
 ; var.foo, data.bar
 ;
-; first element in get_attr is a variable.builtin or a reference to a variable.builtin
-(expression
+; The first step (`var`, `local`, `module`...) stays neutral, every
+; following step is highlighted, so that the meaningful part of a
+; reference stands out from its namespace.
+; @property is the conventional tree-sitter capture for a member access.
+(_
   (variable_expr
     (identifier) @variable)
   (get_attr
-    (identifier) @variable))
+    (identifier) @property))
 
 ; https://github.com/nvim-treesitter/nvim-treesitter/blob/cb79d2446196d25607eb1d982c96939abdf67b8e/queries/terraform/highlights.scm
 ; Terraform specific references
 ;
 ;
-; local/module/data/var/output
-(expression
+; builtins
+;
+; Name the node correctly and give a hook for `experimental.theme_overrides`.
+(_
   (variable_expr
-    (identifier) @variable
-    (#any-of? @variable "data" "var" "local" "module" "output"))
-  (get_attr
-    (identifier) @variable))
+    (identifier) @variable.builtin
+    (#any-of? @variable.builtin "data" "var" "local" "module" "output" "count" "each" "self"))
+  (get_attr))
 
 ; path.root/cwd/module
-(expression
+(_
   (variable_expr
     (identifier) @type
     (#eq? @type "path"))
+  .
   (get_attr
     (identifier) @variable
     (#any-of? @variable "root" "cwd" "module")))
 
 ; terraform.workspace
-(expression
+(_
   (variable_expr
     (identifier) @type
     (#eq? @type "terraform"))
+  .
   (get_attr
     (identifier) @variable
     (#any-of? @variable "workspace")))
